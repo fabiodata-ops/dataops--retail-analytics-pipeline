@@ -1,0 +1,13 @@
+# Ferramentas do Google Cloud
+google-cloud-storage
+google-cloud-bigquery
+
+# Processamento de Dados
+pandas
+duckdb
+
+# Algoritmo de Associação
+mlxtend
+
+# API do Kaggle
+kaggle

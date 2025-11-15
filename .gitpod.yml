@@ -1,0 +1,17 @@
+# Define a imagem Docker a ser usada para o ambiente de trabalho
+image:
+  file: Dockerfile
+
+# Define as tarefas a serem executadas quando o workspace iniciar
+tasks:
+  - name: Setup & Install Dependencies
+    init: |
+      pip install -r requirements.txt
+    command: |
+      echo "Ambiente pronto. Use 'mage start retail-analytics-pipeline' para iniciar o Mage."
+
+# Define quais portas devem ser abertas e expostas
+ports:
+  # Porta padrão do Mage.ai
+  - port: 6789
+    onOpen: open-preview
