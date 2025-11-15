@@ -1,17 +1,11 @@
-# Define a imagem Docker a ser usada para o ambiente de trabalho
-image:
-  file: Dockerfile
-
-# Define as tarefas a serem executadas quando o workspace iniciar
+# Não especificamos mais uma imagem. Deixaremos o Gitpod usar a padrão.
 tasks:
-  - name: Setup & Install Dependencies
+  - name: Install Dependencies & Init Mage
     init: |
-      pip install -r requirements.txt
-    command: |
-      echo "Ambiente pronto. Use 'mage start retail-analytics-pipeline' para iniciar o Mage."
+      pip install mage-ai pandas google-cloud-storage
+      python -m mage_ai init mage_project
+    command: python -m mage_ai start mage_project
 
-# Define quais portas devem ser abertas e expostas
 ports:
-  # Porta padrão do Mage.ai
   - port: 6789
     onOpen: open-preview
